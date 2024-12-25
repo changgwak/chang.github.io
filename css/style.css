@@ -331,6 +331,7 @@ h2.title span{
 	background-size: cover;
 	background-position: -40px center, 0px center;
 	width: 45%;
+	min-width: 300px; /* Ensure the profile photo remains visible */
 }
 .profile-desc{
 	margin-bottom: 70px;
