@@ -333,6 +333,19 @@ h2.title span{
 	width: 45%;
 	min-width: 300px; /* Ensure the profile photo remains visible */
 }
+
+@media (max-width: 767px) {
+	.profile-bg {
+		position: relative;
+		width: 100%;
+		height: auto;
+		background-position: center top;
+		margin-bottom: 20px; /* Add some space below the image */
+	}
+	.profile-desc {
+		padding-left: 0;
+	}
+}
 .profile-desc{
 	margin-bottom: 70px;
 	padding-left: 80px;
