@@ -11695,3 +11695,41 @@ pre .code {
   display: block;
   margin-top: 10px;
 }
+
+/* Default Logo Size */
+.logo {
+    max-width: 100px; /* Default size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Shrink logos for smaller screens */
+@media (max-width: 768px) {
+    .logo {
+        max-width: 80px; /* Smaller size for tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        max-width: 60px; /* Smaller size for phones */
+    }
+}
+
+/* Default Logo Size */
+.logo {
+  max-width: 100px; /* Default size */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Shrink logos for smaller screens */
+@media (max-width: 768px) {
+  .logo {
+      max-width: 80px; /* Smaller size for tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .logo {
+      max-width: 50px; /* Smaller size for phones */
+  }
+}
