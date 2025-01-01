@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Start your development with JohnDoe landing page.">
+    <meta name="description" content="Start your development with landing page.">
     <meta name="author" content="Devcrud">
     <title>ChangGwak</title>
     <!-- font icons -->
@@ -48,6 +48,13 @@
                 <h1 class="header-title" style="margin-bottom: 35px;">Chang Gwak</h1>
                 <h6 class="header-mono" style="margin-top: 0;">Robotics Software Engineer</h6>
                 <button class="btn btn-primary btn-rounded"><i class="ti-printer pr-2"></i>Print Resume</button>
+                <!-- <button class="btn btn-outline-danger"><i class="icon-down-circled2 "></i>Download My CV</button> -->
+                <script>
+                    document.querySelector('.btn.btn-primary.btn-rounded').addEventListener('click', function() {
+                        window.open('https://changgwak.github.io/assets/pdf/changgwak-resume.pdf', '_blank');
+                    });
+                </script>
+
             </div>
         </div>
     </header>
@@ -985,12 +992,54 @@
 
 
     <!-- Google Maps Script -->
-    <script 
+    <!-- <script 
         async 
         defer 
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"
         onerror="handleMapError()">
+    </script> -->
+
+
+    <!-- Function to handle map load error -->
+    <script>
+        function handleMapError() {
+            console.error("Google Maps failed to load.");
+            console.log("handleMapError function executed");
+
+            // Fallback to default image
+            const mapContainer = document.getElementById("map");
+            if (mapContainer) {
+                console.log("mapContainer found");
+                mapContainer.style.backgroundImage = 'url("assets/imgs/default_map.png")';
+                mapContainer.style.backgroundSize = 'cover';
+                mapContainer.style.backgroundPosition = 'center';
+                mapContainer.innerHTML = ''; // Clear any existing content
+            } else {
+                console.log("mapContainer not found");
+            }
+        }
+
+        // Check if Google Maps API key is valid
+        function loadGoogleMapsScript() {
+            const script = document.createElement('script');
+            script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap";
+            script.async = true;
+            script.defer = true;
+            script.onerror = handleMapError;
+            document.head.appendChild(script);
+        }
+
+        // Simulate a check for the API key validity
+        const isApiKeyValid = false; // Set this to true if the API key is valid
+
+        if (isApiKeyValid) {
+            loadGoogleMapsScript();
+        } else {
+            handleMapError();
+        }
     </script>
+
+
 
 
     <script>
