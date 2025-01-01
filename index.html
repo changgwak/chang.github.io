@@ -973,11 +973,16 @@
     
     <!-- Google mpas -->
     <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script> -->
-    <!-- Map Container -->
-    <div id="map" style="width: 100%; height: 400px; background-color: #f0f0f0;">
-        <!-- Default content if JavaScript fails -->
-        <p style="text-align: center; padding-top: 150px; color: gray;">Loading Map...</p>
-    </div>
+
+
+    <!-- Google Maps Script -->
+    <!-- <script 
+        async 
+        defer 
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"
+        onerror="handleMapError()">
+    </script> -->
+
 
     <!-- Google Maps Script -->
     <script 
@@ -986,6 +991,7 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"
         onerror="handleMapError()">
     </script>
+
 
     <script>
         // Function to initialize the Google Map
@@ -999,19 +1005,23 @@
         // Function to handle map load error
         function handleMapError() {
             console.error("Google Maps failed to load.");
+            console.log("handleMapError function executed");
 
             // Fallback to default image
             const mapContainer = document.getElementById("map");
             if (mapContainer) {
-                mapContainer.innerHTML = `
-                    <img 
-                        src="assets/imgs/default_map.png" 
-                        alt="Default Map" 
-                        style="width: 100%; height: 100%; object-fit: cover;">
-                `;
+                console.log("mapContainer found");
+                mapContainer.style.backgroundImage = 'url("https://github.com/changgwak/changgwak.github.io/tree/master/assets/imgs/default_map.png")';
+                mapContainer.style.backgroundSize = 'cover';
+                mapContainer.style.backgroundPosition = 'center';
+                mapContainer.innerHTML = ''; // Clear any existing content
+            } else {
+                console.log("mapContainer not found");
             }
         }
     </script>
+
+
 
 
     <!-- JohnDoe js -->
